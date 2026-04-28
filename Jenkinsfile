@@ -1,9 +1,5 @@
 pipeline {
-    agent { label 'linux' }
-
-    tools {
-        git 'git-linux'
-    }
+    agent any
 
     stages {
         stage('Run App') {
