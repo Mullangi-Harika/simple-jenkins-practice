@@ -1,21 +1,12 @@
 pipeline {
     agent { label 'linux' }
 
+    tools {
+        git 'git-linux'
+    }
+
     stages {
-
-        stage('Clone Code') {
-            steps {
-                echo 'Cloning repository...'
-            }
-        }
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'pip3 install -r requirements.txt || true'
-            }
-        }
-
-        stage('Run Application') {
+        stage('Run App') {
             steps {
                 sh 'python3 app.py'
             }
